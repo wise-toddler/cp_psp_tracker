@@ -32,6 +32,22 @@ const Question = ({ getQuestionDetails, loading, error }) => {
       ) : (
         <p>No students have solved this question yet.</p>
       )}
+      <h2>
+        Unsolved By ({question.unsolvedBy.length} students)
+      </h2>
+        {question.unsolvedBy.length > 0 ? (
+            <ul className="student-list">
+            {question.unsolvedBy.map(student => (
+                <li key={student._id}>
+                <Link to={`/students/${student._id}`}>
+                    {student.name} ({student.codeforcesUsername})
+                </Link>
+                </li>
+            ))}
+            </ul>
+        ) : (
+            <p>No students have unsolved this question yet.</p>
+        )}
     </div>
   );
 };
