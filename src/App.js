@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback,useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
@@ -26,11 +26,18 @@ function App() {
     const fetchData = useCallback(async () => {
         try {
             setLoading(true);
-            const [fetchedStudents, fetchedQuestions, fetchedQuestionStatus] = await Promise.all([
-                find('students', {}),
-                find('questions', {}),
-                find('questionStatus', {}, {}, 50000)
-            ]);
+            // const [fetchedStudents, fetchedQuestions, fetchedQuestionStatus] = await Promise.all([
+            //     find('students', {}),
+            //     find('questions', {}),
+            //     find('questionStatus', {}, {}, 50000)
+            // ]);
+            const fetchedStudents = await find('students', {});
+            const fetchedQuestions = await find('questions', {});
+            const fetchedQuestionStatus = await find('questionStatus', {}, {}, 50000);
+            console.log('fetchedStudents:', fetchedStudents); // Debug log
+            if (!fetchedStudents || !fetchedQuestions || !fetchedQuestionStatus) {
+                throw new Error('Failed to fetch data');
+            }
             setStudents(fetchedStudents);
             setQuestions(fetchedQuestions);
 
@@ -67,6 +74,7 @@ function App() {
     }, []);
 
     const processedStudents = useMemo(() => {
+        if (!students) throw new Error('Students not found');
         return students.map(student => {
             const solvedCount = Object.values(studentToQuestionStatus[student._id] || {}).filter(status => status).length;
             return { ...student, solvedCount };
@@ -140,10 +148,10 @@ function App() {
                         />
                     } />
                     <Route path="/questions/:id" element={
-                        <Question 
-                            getQuestionDetails={getQuestionDetails} 
-                            loading={loading} 
-                            error={error} 
+                        <Question
+                            getQuestionDetails={getQuestionDetails}
+                            loading={loading}
+                            error={error}
                         />
                     } />
                 </Routes>
