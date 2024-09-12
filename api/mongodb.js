@@ -15,6 +15,8 @@ export default async function handler(req, res) {
 
   const { action, collection, payload } = req.body;
 
+  console.log('Received request:', { action, collection, payload });
+
   const url = `${API_URL}/action/${action}`;
   const body = JSON.stringify({
     dataSource,
@@ -22,6 +24,8 @@ export default async function handler(req, res) {
     collection,
     ...payload,
   });
+
+  console.log('Sending request to MongoDB API:', { url, body });
 
   try {
     const response = await fetch(url, {
@@ -33,17 +37,19 @@ export default async function handler(req, res) {
       body: body,
     });
 
+    console.log('Received response from MongoDB API:', { status: response.status, statusText: response.statusText });
+
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('MongoDB API Response:', response.status, response.statusText);
-      console.error('Response body:', errorText);
-      throw new Error(`MongoDB operation failed: ${response.statusText}\nResponse: ${errorText}`);
+      console.error('MongoDB API Error Response:', errorText);
+      return res.status(response.status).json({ error: `MongoDB operation failed: ${response.statusText}`, details: errorText });
     }
 
     const data = await response.json();
+    console.log('MongoDB API Success Response:', data);
     res.status(200).json(data);
   } catch (error) {
     console.error('Error performing MongoDB operation:', error);
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ error: error.message, stack: error.stack });
   }
 }
