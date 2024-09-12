@@ -1,0 +1,105 @@
+.admin-dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #303030;
+    color: #e0e0e0;
+    padding: 20px;
+  }
+  
+  .admin-content {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .admin-header h1 {
+    color: #fff;
+    margin: 0;
+  }
+  
+  .logout-button {
+    background-color: #ff4d4f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+  }
+  
+  .logout-button:hover {
+    background-color: #ff7875;
+  }
+  
+  .tab-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .tab-buttons button {
+    background-color: #61dafb;
+    color: #1a1a1a;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+  }
+  
+  .tab-buttons button:hover {
+    background-color: #4fa8d5;
+  }
+  
+  .tab-content {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .add-student form, .add-question form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .add-student input, .add-question input {
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #e0e0e0;
+    border-radius: 4px;
+  }
+  
+  .add-student button, .add-question button {
+    background-color: #61dafb;
+    color: #1a1a1a;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+  }
+  
+  .add-student button:hover, .add-question button:hover {
+    background-color: #4fa8d5;
+  }
+  
+  .add-student button:disabled, .add-question button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+  }

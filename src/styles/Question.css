@@ -1,0 +1,45 @@
+.question-detail-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+  
+  .question-detail-page h1 {
+    color: #61dafb;
+  }
+  
+  .question-detail-page h2 {
+    color: #61dafb;
+    margin-top: 30px;
+  }
+  
+  .question-link a {
+    color: #61dafb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .question-link a:hover {
+    color: #4fa8d5;
+  }
+  
+  .student-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .student-list li {
+    margin-bottom: 10px;
+  }
+  
+  .student-list a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .student-list a:hover {
+    color: #61dafb;
+  }

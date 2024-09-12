@@ -1,0 +1,13 @@
+.questions-page {
+    padding: 20px;
+    background-color: #1a1a1a;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;  
+  }
+  
+  .questions-page h1 {
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  /* You may need to add or modify styles here depending on your DataTable component's needs */

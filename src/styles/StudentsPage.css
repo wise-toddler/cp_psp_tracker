@@ -1,0 +1,11 @@
+.students-page {
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.students-page h1 {
+    margin-bottom: 20px;
+    color: #fff;
+}

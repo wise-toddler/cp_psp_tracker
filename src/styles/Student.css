@@ -1,0 +1,35 @@
+.student-detail-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+  
+  .student-detail-page h1 {
+    color: #61dafb;
+  }
+  
+  .student-detail-page h2 {
+    color: #61dafb;
+    margin-top: 30px;
+  }
+  
+  .question-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .question-list li {
+    margin-bottom: 10px;
+  }
+  
+  .question-list a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .question-list a:hover {
+    color: #61dafb;
+  }
