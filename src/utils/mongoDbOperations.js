@@ -35,9 +35,9 @@ const performMongoDbOperation = async (action, collection, payload) => {
     console.log('Payload:', JSON.stringify(payload, null, 2));
 
     try {
-        const corsProxyUrl = 'https://cors-anywhere.herokuapp.com/';
-        const response = await fetch(corsProxyUrl + url, {
-        // const response = await fetch(url, {
+        // const corsProxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        // const response = await fetch(corsProxyUrl + url, {
+        const response = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
