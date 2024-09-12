@@ -26,7 +26,7 @@ const getMongoClient = async () => {
     throw error;
   }
 };
-    
+
 const performMongoDbOperation = async (action, collection, payload) => {
     if (!APP_ID) {
       throw new Error('Realm App ID is not set. Check your environment variables.');
@@ -63,7 +63,7 @@ const performMongoDbOperation = async (action, collection, payload) => {
           throw new Error(`Unsupported action: ${action}`);
       }
   
-      console.log('Operation result:', result);
+    //   con    sole.log('Operation result:', result);
       return result;
     } catch (error) {
       console.error('Error performing MongoDB operation:', error);

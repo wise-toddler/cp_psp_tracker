@@ -34,7 +34,7 @@ function App() {
             const fetchedStudents = await find('students', {});
             const fetchedQuestions = await find('questions', {});
             const fetchedQuestionStatus = await find('questionStatus', {}, {}, 50000);
-            console.log('fetchedStudents:', fetchedStudents); // Debug log
+            // console.log('fetchedStudents:', fetchedStudents); // Debug log
             if (!fetchedStudents || !fetchedQuestions || !fetchedQuestionStatus) {
                 throw new Error('Failed to fetch data');
             }
@@ -89,25 +89,35 @@ function App() {
     }, [questions, students, questionToStudentStatus]);
 
     const getStudentDetails = useCallback((studentId) => {
-        const student = students.find(s => s._id === studentId);
+        const student = students.find(s => s._id.toString() === studentId);
         if (!student) return null;
 
         const studentStatuses = studentToQuestionStatus[studentId] || {};
-        const solvedQuestions = questions.filter(q => studentStatuses[q._id]);
-        const unsolvedQuestions = questions.filter(q => !studentStatuses[q._id]);
+        const solvedQuestions = questions.filter(q => studentStatuses[q._id.toString()]);
+        const unsolvedQuestions = questions.filter(q => !studentStatuses[q._id.toString()]);
 
-        return { ...student, solvedQuestions, unsolvedQuestions };
+        return { 
+            ...student, 
+            solvedQuestions, 
+            unsolvedQuestions,
+            solvedCount: solvedQuestions.length
+        };
     }, [students, questions, studentToQuestionStatus]);
-
+    
     const getQuestionDetails = useCallback((questionId) => {
-        const question = questions.find(q => q._id === questionId);
+        const question = questions.find(q => q._id.toString() === questionId);
         if (!question) return null;
 
         const questionStatuses = questionToStudentStatus[questionId] || {};
-        const solvedBy = students.filter(s => questionStatuses[s._id]);
-        const unsolvedBy = students.filter(s => !questionStatuses[s._id]);
+        const solvedBy = students.filter(s => questionStatuses[s._id.toString()]);
+        const unsolvedBy = students.filter(s => !questionStatuses[s._id.toString()]);
 
-        return { ...question, solvedBy, unsolvedBy, solvedCount: solvedBy.length };
+        return { 
+            ...question, 
+            solvedBy, 
+            unsolvedBy, 
+            solvedCount: solvedBy.length 
+        };
     }, [questions, students, questionToStudentStatus]);
 
     return (
