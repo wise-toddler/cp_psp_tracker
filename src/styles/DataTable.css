@@ -56,6 +56,18 @@
 .action-button.delete {
     color: #F44336;
 }
+.data-table th {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .data-table th span {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
 
 @media screen and (max-width: 768px) {
     .data-table {
