@@ -103,3 +103,23 @@
     background-color: #555;
     cursor: not-allowed;
   }
+
+  @media screen and (max-width: 768px) {
+    .admin-content {
+      padding: 20px;
+    }
+  
+    .tab-buttons {
+      flex-wrap: wrap;
+    }
+  
+    .tab-buttons button {
+      margin: 5px;
+      flex: 1 0 40%;
+    }
+  
+    .add-student form,
+    .add-question form {
+      max-width: 100%;
+    }
+  }

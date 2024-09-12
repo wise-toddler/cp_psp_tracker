@@ -56,3 +56,19 @@
 .action-button.delete {
     color: #F44336;
 }
+
+@media screen and (max-width: 768px) {
+    .data-table {
+        font-size: 14px;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 8px 5px;
+    }
+
+    .action-button {
+        padding: 3px;
+        margin-right: 5px;
+    }
+}

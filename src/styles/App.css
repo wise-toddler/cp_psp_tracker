@@ -29,4 +29,30 @@
     margin: 0;
     padding: 0;
   }
+  @media screen and (max-width: 768px) {
+    .App-header {
+      padding: 20px;
+    }
+  }
   
+  /* General responsive adjustments */
+  @media screen and (max-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    .questions-page,
+    .students-page,
+    .question-detail-page,
+    .student-detail-page {
+      padding: 15px;
+    }
+  }
